@@ -4,14 +4,13 @@ import java.util.Scanner;
 
 public class LoanRepay extends LoanInfor {
 	
-	
 	// 생성자
-	LoanRepay(){
+	public LoanRepay() {
 		super();
 	}
 	
 	Scanner sc = new Scanner(System.in);
-	
+
 	// 대출금 상환 메서드
 	void LoanRepay() {
 		

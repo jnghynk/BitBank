@@ -5,39 +5,38 @@ public class LoanInfor {
 	String name;				// 고객 이름
 	String account;				// 계좌
 	String loanPeriod;			// 대출 기간
-	int loanAmount;				// 대출금
-	int loanBalance;			// 대출 잔액
-	int balance;				// 계좌 잔액
-	int interest;			// 이자
+	long loanAmount;				// 대출금
+	long loanBalance;			// 대출 잔액
+	long balance;				// 계좌 잔액
+	int interest;				// 이자
 	
 	public static final double SHORT_INTEREST_RATE=0.07;	// 단기 대출 금리
 	public static final double LONG_INTEREST_RATE=0.03;		// 장기 대출 금리
 	
 	// 생성자
 	LoanInfor(){
-		
 	}
 	
 	// 단기 대출 이자 반환 메서드
-	int ShortLoanInterest(int loanAmount) {
+	long ShortLoanInterest(long loanAmount) {
 		interest = (int)(loanAmount*SHORT_INTEREST_RATE/12);
 		return interest;
 	}
 	
 	// 장기 대출 이자 반환 메서드
-	int LongLoanInterest(int loanAmount) {
+	long LongLoanInterest(long loanAmount) {
 		interest = (int)(loanAmount*LONG_INTEREST_RATE/5/12);
 		return interest;
 	}
 	
 	// 단기 대출 잔액 반환 메서드
-	int ShortLoanBalance(int loanAmount) {
+	long ShortLoanBalance(long loanAmount) {
 		loanBalance = loanAmount-(int)(loanAmount*SHORT_INTEREST_RATE/12);
 		return loanBalance;
 	}
 	
 	// 장기 대출 잔액 반환 메서드
-	int LongLoanBalance(int loanAmount) {
+	long LongLoanBalance(long loanAmount) {
 		loanBalance = loanAmount-(int)(loanAmount*LONG_INTEREST_RATE/5/12);
 		return loanBalance;
 	}
