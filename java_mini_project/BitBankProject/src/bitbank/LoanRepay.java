@@ -45,9 +45,9 @@ public class LoanRepay extends LoanInfor {
 				System.out.println("총 대출 금액 : "+loanAmount);
 				
 				if(loanPeriod.equals("1년")) {	// 단기 대출 이자
-					System.out.println("이번 달 이자 : "+ShortLoanBalance(loanAmount));
+					System.out.println("이번 달 이자 : "+ShortLoanInterest(loanAmount));
 				} else {						// 장기 대출 이자
-					System.out.println("이번 달 이자 :"+LongLoanBalance(loanAmount));
+					System.out.println("이번 달 이자 :"+LongLoanInterest(loanAmount));
 				}
 				
 				while(true) {
@@ -71,14 +71,14 @@ public class LoanRepay extends LoanInfor {
 				
 				if(select == 1) {	// 이자 납입하기
 					if(loanPeriod.equals("1년")) {	// 단기 대출 이자 납입
-						System.out.println("대출 상품 : 단기 대출(1년)");
+						System.out.println("대출 기간 : 단기 대출(1년)");
 						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+(loanAmount-((loanAmount*0.07)/12)));
+						System.out.println("대출 잔액 : "+ShortLoanBalance(loanAmount));
 						System.out.println("이자 납입이 완료되었습니다.");
 					} else {						// 장기 대출 이자 납입
-						System.out.println("대출 상품 : 장기 대출(5년)");
+						System.out.println("대출 기간 : 장기 대출(5년)");
 						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+(loanAmount-((loanAmount*0.04)/5/12)));
+						System.out.println("대출 잔액 : "+LongLoanBalance(loanAmount));
 						System.out.println("이자 납입이 완료되었습니다.");
 					}	// 납입 end
 				} else {			// 대출 메뉴로 돌아가기
@@ -91,9 +91,9 @@ public class LoanRepay extends LoanInfor {
 				System.out.println("총 대출 금액 : "+loanAmount);
 				
 				if(loanPeriod.equals("1년")) {	// 단기 대출 원리금
-					System.out.println("이번 달 원리금 : "+(loanAmount/12)+(loanAmount*0.07)/12);
+					System.out.println("이번 달 원리금 : "+(loanAmount/12)+ShortLoanInterest(loanAmount));
 				} else {						// 장기 대출 원리금
-					System.out.println("이번 달 원리금 :"+(loanAmount/5/12)+(loanAmount*0.04)/5/12);
+					System.out.println("이번 달 원리금 :"+(loanAmount/5/12)+LongLoanInterest(loanAmount));
 				}
 				
 				while(true) {
@@ -117,14 +117,14 @@ public class LoanRepay extends LoanInfor {
 				
 				if(select == 1) {	// 원리금 상환하기
 					if(loanPeriod.equals("1년")) {	// 단기 대출 원리금 납입
-						System.out.println("대출 상품 : 단기 대출(1년)");
+						System.out.println("대출 기간 : 단기 대출(1년)");
 						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+(loanAmount-((loanAmount/12)+(loanAmount*0.07)/12)));
+						System.out.println("대출 잔액 : "+ShortLoanBalance(loanAmount));
 						System.out.println("원리금 상환이 완료되었습니다.");
 					} else {						// 장기 대출 이자 납입
-						System.out.println("대출 상품 : 장기 대출(5년)");
+						System.out.println("대출 기간 : 장기 대출(5년)");
 						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+(loanAmount-((loanAmount/5/12)+(loanAmount*0.04)/5/12)));
+						System.out.println("대출 잔액 : "+LongLoanBalance(loanAmount));
 						System.out.println("원리금 상환이 완료되었습니다.");
 					}	// 상환 end
 				} else {			// 대출 메뉴로 돌아가기
@@ -143,7 +143,7 @@ public class LoanRepay extends LoanInfor {
 				}
 				
 				while(true) {
-					System.out.println("1. 상환하기");
+					System.out.println("1. 전액 상환하기");
 					System.out.println("2. 대출 메뉴로 돌아가기");
 					select = 0;
 					
@@ -161,17 +161,15 @@ public class LoanRepay extends LoanInfor {
 					break;
 				}
 				
-				if(select == 1) {	// 원리금 상환하기
-					if(loanPeriod.equals("1년")) {	// 단기 대출 원리금 납입
-						System.out.println("대출 상품 : 단기 대출(1년)");
+				if(select == 1) {	// 전액 상환하기
+					if(loanPeriod.equals("1년")) {	// 단기 대출 전액 상환
+						System.out.println("대출 기간 : 단기 대출(1년)");
 						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+(loanAmount-((loanAmount/12)+(loanAmount*0.07)/12)));
-						System.out.println("원리금 상환이 완료되었습니다.");
-					} else {						// 장기 대출 이자 납입
-						System.out.println("대출 상품 : 장기 대출(5년)");
+						System.out.println("전액 상환이 완료되었습니다.");
+					} else {						// 장기 대출 전액 상환
+						System.out.println("대출 기간 : 장기 대출(5년)");
 						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+(loanAmount-((loanAmount/5/12)+(loanAmount*0.04)/5/12)));
-						System.out.println("원리금 상환이 완료되었습니다.");
+						System.out.println("전액 상환이 완료되었습니다.");
 					}	// 상환 end
 				} else {			// 대출 메뉴로 돌아가기
 					return;
