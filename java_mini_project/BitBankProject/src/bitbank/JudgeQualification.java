@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class JudgeQualification extends LoanInfor {
 	
 	int Balance;				// 계좌잔액
-	
+	String membership;			// 멤버십 등급
 
 	// 생성자
 	public JudgeQualification() {
@@ -14,11 +14,8 @@ public class JudgeQualification extends LoanInfor {
 	
 	Scanner sc = new Scanner(System.in);
 	
-	// 대출 가능 금액 
+	// 대출 가능 금액 출력 메서드
 	void showPossibleAmound() {
-		
-		System.out.println("멤버십 등급을 입력해주세요 >> ");
-		String membership = sc.nextLine();
 		
 		if(membership.equals("Platinum")) {							// 멤버십 등급이 플래티넘 이상일 경우 대출 가능
 			if(Balance>=60000 && Balance<100000) {			// 6만원 <= 계좌잔액 < 10만원 
