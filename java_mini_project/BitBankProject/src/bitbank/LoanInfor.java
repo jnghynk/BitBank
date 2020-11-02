@@ -147,13 +147,14 @@ public class LoanInfor {
 	// 단기 대출 잔액 반환 메서드
 	long ShortLoanBalance(long loanAmount) {
 		loanBalance = loanAmount;
-		loanBalance -= (int)(loanAmount*SHORT_INTEREST_RATE/12);
+		loanBalance -= (int)(loanAmount*SHORT_INTEREST_RATE/12*100);
 		return loanBalance;
 	}
 	
 	// 장기 대출 잔액 반환 메서드
 	long LongLoanBalance(long loanAmount) {
-		loanBalance = loanAmount-(int)(loanAmount*LONG_INTEREST_RATE/5/12);
+		loanBalance = loanAmount;
+		loanBalance -= (int)(loanAmount*LONG_INTEREST_RATE/12*100);
 		return loanBalance;
 	}
 	

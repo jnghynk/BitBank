@@ -142,6 +142,7 @@ public class LoanRepay extends LoanInfor {
 						
 						// #계좌 잔액 차감
 						// #대출 잔액 차감
+						lp.members2.get(index).getLoanAmount();
 						
 						System.out.println("대출 기간 : 단기 대출(1년)");
 						System.out.println("대출 잔액 : "+ShortLoanBalance(lp.members2.get(index).getLoanAmount()));

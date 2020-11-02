@@ -7,19 +7,31 @@ public class TEST {
 	
 	public static void main(String[] args) {
 		
-		List<String> str = new ArrayList();
+		System.out.println(loanAmount);
 		
-		str.add("스트링1");
-		str.add("스트링2");
 		
-		for(int i=0; i<str.size(); i++) {
-			str.get(i);
-			
-		}
+		
+		System.out.println(LoanBalance(loanAmount));
+		
+		System.out.println(100-(int)(100*0.03/12*100));
+		
+		
+		
+		
+		
 		
 		
 		
 		
 	}
-
+	
+	static long loanAmount = 100;
+	static long loanBalance = 0;
+	
+	// 장기 대출 잔액 반환 메서드
+	static long LoanBalance(long loanAmount) {
+		loanBalance = loanAmount;
+		loanBalance -=(int)(loanAmount*0.03/12*100);
+		return loanBalance;
+	}
 }
