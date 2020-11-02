@@ -5,7 +5,7 @@ public class LoanInfor {
 	String name;				// 고객 이름
 	String account;				// 계좌
 	String loanPeriod;			// 대출 기간
-	long loanAmount;				// 대출금
+	long loanAmount;			// 대출금
 	long loanBalance;			// 대출 잔액
 	long balance;				// 계좌 잔액
 	int interest;				// 이자
@@ -43,17 +43,17 @@ public class LoanInfor {
 	
 	// 대출 내역 확인 메서드
 	void ShowLoanInfor() {
-		System.out.println("성       함 : "+name);
+		System.out.println("성      함 : "+name);
 		System.out.println("대출 기간 : "+loanPeriod);
 		System.out.println("대출 금액 : "+loanAmount);
 		
 		if(loanPeriod.equals("1년")) {	// 단기 대출
-			System.out.println("금       리 : "+SHORT_INTEREST_RATE);
+			System.out.println("금      리 : "+SHORT_INTEREST_RATE);
 			System.out.println("대출 잔액 : "+ShortLoanBalance(loanAmount));
 			System.out.println("이자 잔액 : "+ShortLoanInterest(loanAmount));
 			
 		} else {						// 장기 대출
-			System.out.println("금       리 : "+LONG_INTEREST_RATE);
+			System.out.println("금      리 : "+LONG_INTEREST_RATE);
 			System.out.println("대출 잔액 : "+LongLoanBalance(loanAmount));
 			System.out.println("이자 잔액 : "+LongLoanInterest(loanAmount));
 		}
