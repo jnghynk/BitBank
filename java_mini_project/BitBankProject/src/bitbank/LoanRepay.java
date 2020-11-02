@@ -38,15 +38,30 @@ public class LoanRepay extends LoanInfor {
 			break;
 		} // while end
 			
+		
+		System.out.println("고객님의 이름을 입력해주세요 >> ");
+		String nm = sc.nextLine();
+		
+		// LoanProgress 클래스를 통해 이름 비교 후 해당 고객 index 얻기
+		LoanProgress lp = new LoanProgress();
+		
+		int index = 0;
+		
+		for(int i=0; i<lp.members2.size(); i++) {
+			lp.members2.get(i).getName().equals(nm);
+		}
+		
 		switch(select) {
 			case 1 :	// 이자 납입
-				System.out.println("이자납입test");
-				System.out.println("총 대출 금액 : "+loanAmount);
+				//System.out.println("이자납입test");
+					
+				System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
 				
-				if(loanPeriod.equals("1년")) {	// 단기 대출 이자
-					System.out.println("이번 달 이자 : "+ShortLoanInterest(loanAmount));
+				if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 이자
+					
+					System.out.println("이번 달 이자 : "+ShortLoanInterest(lp.members2.get(index).getLoanAmount()));
 				} else {						// 장기 대출 이자
-					System.out.println("이번 달 이자 :"+LongLoanInterest(loanAmount));
+					System.out.println("이번 달 이자 :"+LongLoanInterest(lp.members2.get(index).getLoanAmount()));
 				}
 				
 				while(true) {
@@ -68,16 +83,24 @@ public class LoanRepay extends LoanInfor {
 					break;
 				}
 				
+
+				
 				if(select == 1) {	// 이자 납입하기
-					if(loanPeriod.equals("1년")) {	// 단기 대출 이자 납입
+					if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 이자 납입
+						
+						// 계좌 잔액 차감
+						
 						System.out.println("대출 기간 : 단기 대출(1년)");
-						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+ShortLoanBalance(loanAmount));
+						System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
+						System.out.println("대출 잔액 : "+ShortLoanBalance(lp.members2.get(index).getLoanAmount()));
 						System.out.println("이자 납입이 완료되었습니다.");
-					} else {						// 장기 대출 이자 납입
+					} else {													// 장기 대출 이자 납입
+						
+						// 계좌 잔액 차감
+						
 						System.out.println("대출 기간 : 장기 대출(5년)");
-						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+LongLoanBalance(loanAmount));
+						System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
+						System.out.println("대출 잔액 : "+LongLoanBalance(lp.members2.get(index).getLoanAmount()));
 						System.out.println("이자 납입이 완료되었습니다.");
 					}	// 납입 end
 				} else {			// 대출 메뉴로 돌아가기
@@ -85,14 +108,14 @@ public class LoanRepay extends LoanInfor {
 				}
 				break;	// switch break
 			case 2 :	// 원리금 상환
-				System.out.println("원리금상환test");
+				//System.out.println("원리금상환test");
 
-				System.out.println("총 대출 금액 : "+loanAmount);
+				System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
 				
-				if(loanPeriod.equals("1년")) {	// 단기 대출 원리금
-					System.out.println("이번 달 원리금 : "+(loanAmount/12)+ShortLoanInterest(loanAmount));
-				} else {						// 장기 대출 원리금
-					System.out.println("이번 달 원리금 :"+(loanAmount/5/12)+LongLoanInterest(loanAmount));
+				if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 원리금
+					System.out.println("이번 달 원리금 : "+(lp.members2.get(index).getLoanAmount()/12)+ShortLoanInterest(lp.members2.get(index).getLoanAmount()));
+				} else {													// 장기 대출 원리금
+					System.out.println("이번 달 원리금 :"+(lp.members2.get(index).getLoanAmount()/5/12)+LongLoanInterest(lp.members2.get(index).getLoanAmount()));
 				}
 				
 				while(true) {
@@ -113,17 +136,18 @@ public class LoanRepay extends LoanInfor {
 					}
 					break;
 				}
+			
 				
 				if(select == 1) {	// 원리금 상환하기
-					if(loanPeriod.equals("1년")) {	// 단기 대출 원리금 납입
+					if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 원리금 납입
 						System.out.println("대출 기간 : 단기 대출(1년)");
-						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+ShortLoanBalance(loanAmount));
+						System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
+						System.out.println("대출 잔액 : "+ShortLoanBalance(lp.members2.get(index).getLoanAmount()));
 						System.out.println("원리금 상환이 완료되었습니다.");
-					} else {						// 장기 대출 이자 납입
+					} else {													// 장기 대출 이자 납입
 						System.out.println("대출 기간 : 장기 대출(5년)");
-						System.out.println("총 대출 금액 : "+loanAmount);
-						System.out.println("대출 잔액 : "+LongLoanBalance(loanAmount));
+						System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
+						System.out.println("대출 잔액 : "+LongLoanBalance(lp.members2.get(index).getLoanAmount()));
 						System.out.println("원리금 상환이 완료되었습니다.");
 					}	// 상환 end
 				} else {			// 대출 메뉴로 돌아가기
@@ -131,14 +155,14 @@ public class LoanRepay extends LoanInfor {
 				}
 				break;	// switch break
 			case 3 :	// 전액 상환
-				System.out.println("전액상환test");
+				//System.out.println("전액상환test");
 				
-				System.out.println("총 대출 금액 : "+loanAmount);
+				System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
 				
-				if(loanPeriod.equals("1년")) {	// 단기 대출 전액 상환
-					System.out.println("상환하실 금액 : "+ShortLoanBalance(loanAmount));
-				} else {						// 장기 대출 전액 상환
-					System.out.println("상환하실 금액 : "+LongLoanBalance(loanAmount));
+				if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 전액 상환
+					System.out.println("상환하실 금액 : "+ShortLoanBalance(lp.members2.get(index).getLoanAmount()));
+				} else {													// 장기 대출 전액 상환
+					System.out.println("상환하실 금액 : "+LongLoanBalance(lp.members2.get(index).getLoanAmount()));
 				}
 				
 				while(true) {
@@ -161,13 +185,13 @@ public class LoanRepay extends LoanInfor {
 				}
 				
 				if(select == 1) {	// 전액 상환하기
-					if(loanPeriod.equals("1년")) {	// 단기 대출 전액 상환
+					if(lp.members2.get(index).getLoanPeriod().equals("1년")) {	// 단기 대출 전액 상환
 						System.out.println("대출 기간 : 단기 대출(1년)");
-						System.out.println("총 대출 금액 : "+loanAmount);
+						System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
 						System.out.println("전액 상환이 완료되었습니다.");
-					} else {						// 장기 대출 전액 상환
+					} else {													// 장기 대출 전액 상환
 						System.out.println("대출 기간 : 장기 대출(5년)");
-						System.out.println("총 대출 금액 : "+loanAmount);
+						System.out.println("총 대출 금액 : "+lp.members2.get(index).getLoanAmount());
 						System.out.println("전액 상환이 완료되었습니다.");
 					}	// 상환 end
 				} else {			// 대출 메뉴로 돌아가기
