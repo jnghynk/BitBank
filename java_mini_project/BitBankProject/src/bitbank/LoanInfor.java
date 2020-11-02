@@ -24,112 +24,65 @@ public class LoanInfor {
 		return name;
 	}
 
-
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-
 
 	public String getAccount() {
 		return account;
 	}
 
-
-
-
 	public void setAccount(String account) {
 		this.account = account;
 	}
-
-
-
 
 	public String getLoanPeriod() {
 		return loanPeriod;
 	}
 
-
-
-
 	public void setLoanPeriod(String loanPeriod) {
 		this.loanPeriod = loanPeriod;
 	}
-
-
-
 
 	public long getLoanAmount() {
 		return loanAmount;
 	}
 
-
-
-
 	public void setLoanAmount(long loanAmount) {
 		this.loanAmount = loanAmount;
 	}
-
-
-
 
 	public long getLoanBalance() {
 		return loanBalance;
 	}
 
-
-
-
 	public void setLoanBalance(long loanBalance) {
 		this.loanBalance = loanBalance;
 	}
-
-
-
 
 	public long getBalance() {
 		return balance;
 	}
 
-
-
-
 	public void setBalance(long balance) {
 		this.balance = balance;
 	}
-
-
-
 
 	public long getInterest() {
 		return interest;
 	}
 
-
-
-
 	public void setInterest(long interest) {
 		this.interest = interest;
 	}
-
-
-
 
 	public static double getShortInterestRate() {
 		return SHORT_INTEREST_RATE;
 	}
 
-
-
-
 	public static double getLongInterestRate() {
 		return LONG_INTEREST_RATE;
 	}
-
-
 
 
 	// 단기 대출 이자 반환 메서드
