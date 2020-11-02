@@ -38,9 +38,9 @@ public class LoanRepay extends LoanInfor {
 			break;
 		} // while end
 			
-		
+		// #회원 정보에 있는지 없는지 확인 후 예외처리 
 		System.out.println("고객님의 이름을 입력해주세요 >> ");
-		String nm = sc.nextLine();
+		String nm = sc.nextLine().trim();
 		
 		// LoanProgress 클래스를 통해 이름 비교 후 해당 고객 index 얻기
 		LoanProgress lp = new LoanProgress();
