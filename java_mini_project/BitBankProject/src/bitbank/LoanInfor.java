@@ -134,13 +134,13 @@ public class LoanInfor {
 
 	// 단기 대출 이자 반환 메서드
 	long ShortLoanInterest(long loanAmount) {
-		interest = (int)(loanAmount*SHORT_INTEREST_RATE/12);
+		interest = (int)(loanAmount*SHORT_INTEREST_RATE/12*100);
 		return interest;
 	}
 	
 	// 장기 대출 이자 반환 메서드
 	long LongLoanInterest(long loanAmount) {
-		interest = (int)(loanAmount*LONG_INTEREST_RATE/5/12);
+		interest = (int)(loanAmount*LONG_INTEREST_RATE/5/12*100);
 		return interest;
 	}
 	

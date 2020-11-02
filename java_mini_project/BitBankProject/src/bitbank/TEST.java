@@ -7,13 +7,7 @@ public class TEST {
 	
 	public static void main(String[] args) {
 		
-		System.out.println(loanAmount);
-		
-		
-		
-		System.out.println(LoanBalance(loanAmount));
-		
-		System.out.println(100-(int)(100*0.03/12*100));
+		System.out.println(ShortLoanInterest(loanAmount));
 		
 		
 		
@@ -27,11 +21,11 @@ public class TEST {
 	
 	static long loanAmount = 100;
 	static long loanBalance = 0;
+	static long interest = 0;
 	
-	// 장기 대출 잔액 반환 메서드
-	static long LoanBalance(long loanAmount) {
-		loanBalance = loanAmount;
-		loanBalance -=(int)(loanAmount*0.03/12*100);
-		return loanBalance;
+	// 단기 대출 이자 반환 메서드
+	static long ShortLoanInterest(long loanAmount) {
+		interest = (int)(loanAmount*0.07/12*100);
+		return interest;
 	}
 }
