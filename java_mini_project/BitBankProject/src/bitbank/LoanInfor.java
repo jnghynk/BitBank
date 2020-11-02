@@ -17,9 +17,6 @@ public class LoanInfor {
 	LoanInfor(){
 	}
 	
-	
-	
-	
 	public String getName() {
 		return name;
 	}
